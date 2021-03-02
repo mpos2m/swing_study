@@ -35,11 +35,7 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 
-		btn1 = new JButton("Magenta/Yellow Button");
-		btn1.setFont(new Font("Arial", Font.ITALIC, 20));
-		btn1.setForeground(Color.MAGENTA);
-		btn1.setBackground(Color.YELLOW);
-		contentPane.add(btn1);
+		createBtn();
 
 		btn2 = new JButton("Disabled Button");
 		btn2.addActionListener(this);
@@ -51,7 +47,20 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 		contentPane.add(btn3);
 	}
 
+	private JButton createBtn() {
+		btn1 = new JButton("Magenta/Yellow Button");
+		btn1.addActionListener(this);
+		btn1.setFont(new Font("Arial", Font.ITALIC, 20));
+		btn1.setForeground(Color.MAGENTA);
+		btn1.setBackground(Color.YELLOW);
+		contentPane.add(btn1);
+		return btn1;
+	}
+
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn1) {
+			actionPerformedBtn1(e);
+		}
 		if (e.getSource() == btn3) {
 			actionPerformedBtn3(e);
 		}
@@ -63,13 +72,14 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 	protected void actionPerformedBtn2(ActionEvent e) {
 		if (btn1 != null) {
 			contentPane.remove(btn1);
+			btn1 = null;
 			revalidate();
 		} else {
-			if (btn1.isVisible()) {
-				btn1.setVisible(false);
-			} else {
-				btn1.setVisible(true);
-			}
+			JButton btn = createBtn();
+			contentPane.add(btn1,0);
+			revalidate();
+			
+		
 		}
 	}
 
@@ -82,6 +92,13 @@ public class FrameComponentEx extends JFrame implements ActionListener {
 			btn2.setEnabled(false);
 		} else {
 			btn2.setEnabled(true);
+		}
+	}
+	protected void actionPerformedBtn1(ActionEvent e) {
+		if (btn3.isVisible()) {
+			btn3.setVisible(false);
+		} else {
+			btn3.setVisible(true);
 		}
 	}
 }
