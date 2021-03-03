@@ -114,7 +114,7 @@ public class SwingMain extends JFrame implements ActionListener {
 		pComponent1.add(btn05);
 		
 		pCheackRadio = new JPanel();
-		pCheackRadio.setBorder(new TitledBorder(null, "check", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pCheackRadio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Check&&Radio", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		contentPane.add(pCheackRadio);
 	}
 
