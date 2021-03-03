@@ -14,10 +14,11 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+@SuppressWarnings("serial")
 public class JLabelEx extends JFrame implements MouseListener {
 
 	private JPanel contentPane;
-	private String path = System.getProperty("user.dir") + File.separator + "images" + File.separator;
+	String path = System.getProperty("user.dir") + File.separator + "images" + File.separator;
 	private JLabel lblTop;
 	private JLabel lblCenter;
 	private JLabel lblBottom;
