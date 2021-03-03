@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import swing_study.component.FrameComponentEx;
+import swing_study.component.JLabelEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
@@ -19,6 +20,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class SwingMain extends JFrame implements ActionListener {
 
@@ -31,6 +34,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JButton btnAbsoluteLayout;
 	private JButton btnGridLayout;
 	private JButton btnNewButton;
+	private JPanel pComponent1;
+	private JButton btn04;
+	private JButton btn05;
+	private JButton btn06;
 
 	
 	public static void main(String[] args) {
@@ -91,9 +98,27 @@ public class SwingMain extends JFrame implements ActionListener {
 		btnNewButton = new JButton("JComponent");
 		btnNewButton.addActionListener(this);
 		contentPane.add(btnNewButton);
+		
+		pComponent1 = new JPanel();
+		pComponent1.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "JLable,JButton,JToggle", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(pComponent1);
+		pComponent1.setLayout(new GridLayout(0, 1, 0, 10));
+		
+		btn04 = new JButton("JLable");
+		btn04.addActionListener(this);
+		pComponent1.add(btn04);
+		
+		btn05 = new JButton("Jbutton");
+		pComponent1.add(btn05);
+		
+		btn06 = new JButton("JToggle");
+		pComponent1.add(btn06);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn04) {
+			actionPerformedBtn04(e);
+		}
 		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
 		}
@@ -142,6 +167,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
 		FrameComponentEx frame = new FrameComponentEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn04(ActionEvent e) {
+		JLabelEx frame = new JLabelEx();
 		frame.setVisible(true);
 	}
 }
