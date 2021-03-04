@@ -21,11 +21,13 @@ import swing_study.component.JCheckBoxCustom;
 import swing_study.component.JCheckEx;
 import swing_study.component.JLabelEx;
 import swing_study.component.JRadioButtonEx;
+import swing_study.component.JTextFiledAreaEx;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JPanelEx;
 import swing_study.layout.FrameLayout;
 import swing_study.layout.LayoutGuBun;
 
+@SuppressWarnings("serial")
 public class SwingMain extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
@@ -43,6 +45,8 @@ public class SwingMain extends JFrame implements ActionListener {
 	private JPanel pCheackRadio;
 	private JButton btn06;
 	private JButton btn07;
+	private JPanel pText;
+	private JButton btn08;
 
 	
 	public static void main(String[] args) {
@@ -129,9 +133,20 @@ public class SwingMain extends JFrame implements ActionListener {
 		btn07 = new JButton("JRadio");
 		btn07.addActionListener(this);
 		pCheackRadio.add(btn07);
+		
+		pText = new JPanel();
+		pText.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "\uD14D\uC2A4\uD2B8\uD544\uB4DC", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(pText);
+		
+		btn08 = new JButton("텍스트 필드");
+		btn08.addActionListener(this);
+		pText.add(btn08);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn08) {
+			actionPerformedBtn08(e);
+		}
 		if (e.getSource() == btn07) {
 			actionPerformedBtn07(e);
 		}
@@ -218,6 +233,10 @@ public class SwingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn07(ActionEvent e) {
 		JRadioButtonEx frame = new JRadioButtonEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn08(ActionEvent e) {
+		JTextFiledAreaEx frame = new JTextFiledAreaEx();
 		frame.setVisible(true);
 	}
 }
