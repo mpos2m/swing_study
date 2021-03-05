@@ -1,31 +1,29 @@
 package swing_study.component;
 
 import java.awt.BorderLayout;
-import java.awt.EventQueue;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Date;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
-import javax.swing.text.TabableView;
 
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JPasswordField;
-import java.awt.Font;
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import com.toedter.calendar.JDateChooser;
-import java.awt.event.ActionListener;
-import java.util.Date;
-import java.awt.event.ActionEvent;
-import javax.swing.JButton;
 
 public class JTextFiledAreaEx extends JFrame implements ActionListener {
 
